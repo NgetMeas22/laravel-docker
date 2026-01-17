@@ -4,15 +4,14 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: laravel-basic
-    depends_on:
-      - database
     env_file:
-      - laravel/.env
+      - .env
     ports:
       - "8000:8000"
     volumes:
       - ./:/var/www/html
-    
+    depends_on:
+      - database
 
   database:
     image: mysql:8.0
